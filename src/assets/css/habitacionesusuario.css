@@ -1,0 +1,171 @@
+/* assets/css/habitacionesusuario.css */
+
+/* Variables de diseño */
+:root {
+  --primary-color: #0e253b; /* Azul oscuro corporativo */
+  --secondary-color: #3498db; /* Azul brillante */
+  --accent-color: #e74c3c; /* Rojo para destacar */
+  --light-bg: #07080a;
+  --white: #ffffff;
+  --text-color: #333;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Estructura base */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-bg);
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Encabezado */
+.encabezado {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  box-shadow: var(--box-shadow);
+}
+
+.encabezado h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.encabezado nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+/* Botones */
+.btn {
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-secundario {
+  background-color: var(--white);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn-secundario:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Contenido principal */
+.contenedor-habitaciones {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tabla de habitaciones */
+.tabla {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-top: 2rem;
+}
+
+.tabla h2 {
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+#tablaHabitaciones {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#tablaHabitaciones th,
+#tablaHabitaciones td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+#tablaHabitaciones th {
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-weight: 600;
+}
+
+#tablaHabitaciones tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#tablaHabitaciones tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Mensaje cuando no hay habitaciones */
+.mensaje-vacio {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-style: italic;
+  background-color: #f9f9f9;
+  border-radius: var(--border-radius);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .encabezado {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .encabezado nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .contenedor-habitaciones {
+    padding: 1rem;
+  }
+  
+  #tablaHabitaciones th,
+  #tablaHabitaciones td {
+    padding: 0.8rem 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #tablaHabitaciones {
+    display: block;
+    overflow-x: auto;
+  }
+}

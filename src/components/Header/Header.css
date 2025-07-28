@@ -1,0 +1,10 @@
+.encabezado {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #fff;
+  backdrop-filter: blur(10px);
+}
+

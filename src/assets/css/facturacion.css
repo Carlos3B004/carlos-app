@@ -1,0 +1,259 @@
+/* facturacion.css */
+
+/* Estilos generales */
+.facturacion-container {
+  max-width: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #000; /* Texto negro en todo el formulario */
+}
+
+/* Encabezado - ahora ocupa todo el ancho */
+.facturacion-header {
+  background-color: #3498db; /* Azul más vibrante */
+  color: white;
+  padding: 1.5rem 2rem;
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.facturacion-header h1 {
+  margin: 0 auto;
+  max-width: 1200px;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Barra de navegación */
+.facturacion-nav {
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem; /* Reducir espacio derecho */
+}
+
+.facturacion-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.btn-principal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem; /* Reducir espacio entre icono y texto */
+  padding: 0.5rem 1rem; /* Tamaño más compacto */
+  background-color: #2c3e50;
+  color: white;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem; /* Texto más pequeño */
+  transition: all 0.2s ease;
+}
+
+.btn-principal:hover {
+  background-color: #1a252f;
+  transform: translateY(-1px);
+}
+/* Contenido principal */
+.facturacion-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Formulario de búsqueda */
+.facturacion-form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.facturacion-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.facturacion-form input {
+  width: 100%;
+  max-width: 500px;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  transition: border 0.3s;
+}
+
+.facturacion-form input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.btn-buscar {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+
+.btn-buscar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* Sección de factura */
+.factura-section {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid #3498db;
+}
+
+.factura-section h2 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.6rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+  margin-bottom: 1.5rem;
+}
+
+.factura-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.factura-item {
+  margin-bottom: 1rem;
+}
+
+.factura-label {
+  font-weight: 600;
+  color: #7f8c8d;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.factura-value {
+  font-size: 1.1rem;
+  color: #000;
+}
+
+.factura-total {
+  grid-column: span 2;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  text-align: center;
+  border: 2px solid #e0e0e0;
+}
+
+.btn-generar {
+  display: block;
+  width: 100%;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 2rem;
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.btn-generar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+}
+
+/* Mensajes */
+.mensaje {
+  padding: 1.2rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.mensaje-error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+.mensaje-exito {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .facturacion-header {
+    padding: 1.2rem;
+    text-align: center;
+  }
+  
+  .facturacion-nav {
+    position: static;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .factura-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .factura-total {
+    grid-column: span 1;
+  }
+  
+  .facturacion-content {
+    padding: 1.5rem;
+  }
+  
+  .factura-section, .facturacion-form {
+    padding: 1.5rem;
+  }
+}
+
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+  .facturacion-nav {
+    position: static;
+    margin-top: 0.8rem;
+  }
+  
+  .btn-principal {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}

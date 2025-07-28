@@ -1,0 +1,210 @@
+/* Variables de diseño */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --light-gray: #ecf0f1d2;
+  --white: #ffffff99;
+  --dark: #212529;
+  --border-color: #bdc3c7e0;
+  --text-color: var(--dark);
+  --border-radius: 12px;
+  --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Estructura base */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-gray);
+  color: var(--text-color);
+}
+
+.panel-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Contenido principal */
+.contenido-principal {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Sección de bienvenida */
+.bienvenida {
+  background-color: var(--white);
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.bienvenida h2 {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.bienvenida p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+/* Contenedor de imagen */
+.contenedor-imagen {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.imagen-panel {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: var(--transition);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-explorar {
+  padding: 1rem 2.5rem;
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-explorar:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.493);
+}
+
+/* Accesos rápidos */
+.accesos-rapidos {
+  margin-top: 3rem;
+}
+
+.accesos-rapidos h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.grid-accesos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.tarjeta-acceso {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.tarjeta-acceso:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta-acceso .icono {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.tarjeta-acceso h4 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.tarjeta-acceso p {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .contenido-principal {
+    padding: 1.5rem;
+  }
+  
+  .bienvenida {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bienvenida h2 {
+    font-size: 1.8rem;
+  }
+  
+  .bienvenida p {
+    font-size: 1.1rem;
+  }
+  
+  .btn-explorar {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .accesos-rapidos h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .contenido-principal {
+    padding: 1rem;
+  }
+  
+  .bienvenida {
+    padding: 1.5rem;
+  }
+  
+  .grid-accesos {
+    grid-template-columns: 1fr;
+  }
+  
+  .tarjeta-acceso {
+    padding: 1.5rem;
+  }
+}

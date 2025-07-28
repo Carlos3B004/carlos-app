@@ -1,0 +1,220 @@
+/* Variables de diseño */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --light-gray: #f8f9fa;
+  --white: #ffffff;
+  --dark: #212529;
+  --border-color: #dee2e6;
+  --text-color: var(--dark);
+  --border-radius: 8px;
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Contenedor principal */
+.reserva-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Contenido principal */
+.contenido-principal {
+  flex: 1;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Formulario */
+.formulario-reserva {
+  background-color: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin: 0 auto;
+}
+
+.titulo-formulario {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+/* Grupos de campos */
+.grupo-campos {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.campo-formulario {
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.campo-formulario label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.campo-formulario input,
+.campo-formulario select {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: var(--white);
+  transition: var(--transition);
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.campo-formulario input::placeholder {
+  color: #adb5bd;
+}
+
+/* Botones */
+.botones-form {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.btn-primario {
+  flex: 1;
+  padding: 1.2rem;
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primario:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(41, 128, 185, 0.2);
+}
+
+.btn-secundario {
+  flex: 1;
+  padding: 1.2rem;
+  background-color: var(--white);
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-secundario:hover {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+/* Mensaje de éxito */
+.mensaje-exito {
+  text-align: center;
+  padding: 1.2rem;
+  margin: 2rem 0;
+  border-radius: var(--border-radius);
+  background-color: rgba(40, 167, 69, 0.1);
+  color: var(--success-color);
+  font-weight: 500;
+  border: 1px solid var(--success-color);
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .contenido-principal {
+    padding: 1.5rem;
+  }
+  
+  .formulario-reserva {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .grupo-campos {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .campo-formulario {
+    margin-bottom: 1.5rem;
+  }
+  
+  .botones-form {
+    flex-direction: column;
+  }
+  
+  .titulo-formulario {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .formulario-reserva {
+    padding: 1.5rem;
+  }
+  
+  .titulo-formulario {
+    font-size: 1.3rem;
+  }
+  
+  .campo-formulario input,
+  .campo-formulario select {
+    padding: 0.9rem;
+  }
+}

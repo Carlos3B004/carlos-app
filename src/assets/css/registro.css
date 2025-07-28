@@ -1,0 +1,227 @@
+/* assets/css/registro.css */
+
+/* Variables de diseño */
+:root {
+  --primary-color: #2c3e50; /* Azul oscuro corporativo */
+  --secondary-color: #3498db; /* Azul brillante */
+  --accent-color: #e74c3c; /* Rojo para destacar */
+  --light-bg: #f5f7fa; /* Fondo gris claro */
+  --white: #ffffff;
+  --text-color: #333;
+  --success-color: #28a745; /* Verde para éxito */
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Estructura base */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-bg);
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Encabezado */
+.header-principal {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  box-shadow: var(--box-shadow);
+}
+
+.header-principal h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.menu-navegacion {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+/* Botones */
+.btn-secundario {
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--white);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn-secundario:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Contenedor principal */
+.contenedor-registro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 72px);
+  padding: 2rem;
+}
+
+/* Formulario */
+.form-wrapper {
+  background-color: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-wrapper h2 {
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Campos del formulario */
+#formRegistro label {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+#formRegistro input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
+#formRegistro input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+#formRegistro input::placeholder {
+  color: #95a5a6;
+}
+
+/* Botones del formulario */
+.botones {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  flex: 1;
+  border: none;
+}
+
+.btn.primario {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.btn.primario:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.btn.secundario {
+  background-color: var(--white);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn.secundario:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+/* Mensaje */
+#mensaje {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  border-radius: var(--border-radius);
+  background-color: rgba(40, 167, 69, 0.1);
+  color: var(--success-color);
+  font-weight: 500;
+  border: 1px solid var(--success-color);
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-principal {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .menu-navegacion {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-secundario {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .contenedor-registro {
+    padding: 1rem;
+  }
+  
+  .botones {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-wrapper {
+    padding: 1.5rem;
+  }
+}

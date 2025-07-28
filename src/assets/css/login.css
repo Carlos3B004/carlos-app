@@ -1,0 +1,113 @@
+/* Estilos base */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('../img/hotel2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.contenedor-login {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.formulario-login {
+  background: rgba(255, 255, 255, 0.816);
+  padding: 2.5rem;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-login {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.campo-formulario {
+  margin-bottom: 1.5rem;
+}
+
+.campo-formulario label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.input-login,
+.select-login {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.input-login:focus,
+.select-login:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.boton-login {
+  width: 100%;
+  padding: 1rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 1rem;
+}
+
+.boton-login:hover {
+  background-color: #2980b9;
+}
+
+.enlace-registro {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #7f8c8d;
+}
+
+.enlace-registro-texto {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.enlace-registro-texto:hover {
+  text-decoration: underline;
+}
+
+.mensaje-error {
+  color: #e74c3c;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background-color: #fadbd8;
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .formulario-login {
+    padding: 1.5rem;
+  }
+}
