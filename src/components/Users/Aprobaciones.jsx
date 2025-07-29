@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import "../../assets/css/aprobaciones.css";
 
 const Aprobaciones = () => {
   const [usuarios, setUsuarios] = useState([]);
-  const [adminToken, setAdminToken] = useState("");
   const [isLoading, setIsLoading] = useState(true);
- 
+  const [filtro, setFiltro] = useState("pendiente");
 
-  // Cargar datos iniciales
   useEffect(() => {
-    const cargarDatos = async () => {
+    const cargarDatos = () => {
       try {
-        const usuariosGuardados = JSON.parse(localStorage.getItem("usuariosPendientes")) || [];
-        const token = localStorage.getItem("adminToken") || "";
-        
-        setUsuarios(usuariosGuardados);
-        setAdminToken(token);
+        const usuariosGuardados = JSON.parse(localStorage.getItem("usuarios")) || [];
+        const usuariosConEstado = usuariosGuardados.map(usuario => ({
+          ...usuario,
+          aprobado: usuario.aprobado || false
+        }));
+        setUsuarios(usuariosConEstado);
       } catch (error) {
         console.error("Error cargando datos:", error);
       } finally {
@@ -28,136 +26,123 @@ const Aprobaciones = () => {
     cargarDatos();
   }, []);
 
-  // Validar credenciales de administrador
-  const validarAdmin = () => {
-    return adminToken === "clave-secreta-admin"; // Cambiar por tu lógica de autenticación real
+  const actualizarUsuarios = (nuevosUsuarios) => {
+    try {
+      localStorage.setItem("usuarios", JSON.stringify(nuevosUsuarios));
+      setUsuarios(nuevosUsuarios);
+    } catch (error) {
+      console.error("Error guardando datos:", error);
+    }
   };
 
-  // Aprobar usuario
   const aprobarUsuario = (documento) => {
-    if (!validarAdmin()) {
-      alert("Acceso denegado: Solo administradores pueden realizar esta acción");
-      return;
-    }
-
-    const usuariosActualizados = usuarios.map(usuario => {
-      if (usuario.documento === documento) {
-        return { ...usuario, estado: "Aprobado" };
-      }
-      return usuario;
-    });
-
-    setUsuarios(usuariosActualizados);
-    localStorage.setItem("usuariosPendientes", JSON.stringify(usuariosActualizados));
-
-    // Mover usuario aprobado a otra lista
-    const usuarioAprobado = usuarios.find(u => u.documento === documento);
-    if (usuarioAprobado) {
-      const usuariosAprobados = JSON.parse(localStorage.getItem("usuariosAprobados")) || [];
-      localStorage.setItem(
-        "usuariosAprobados",
-        JSON.stringify([...usuariosAprobados, usuarioAprobado])
-      );
-    }
+    const usuariosActualizados = usuarios.map(usuario => 
+      usuario.documento === documento 
+        ? { ...usuario, aprobado: true } 
+        : usuario
+    );
+    actualizarUsuarios(usuariosActualizados);
   };
 
-  // Rechazar usuario
   const rechazarUsuario = (documento) => {
-    if (!validarAdmin()) {
-      alert("Acceso denegado: Solo administradores pueden realizar esta acción");
-      return;
-    }
-
-    const usuariosFiltrados = usuarios.filter(
+    const usuariosActualizados = usuarios.filter(
       usuario => usuario.documento !== documento
     );
-    
-    setUsuarios(usuariosFiltrados);
-    localStorage.setItem("usuariosPendientes", JSON.stringify(usuariosFiltrados));
+    actualizarUsuarios(usuariosActualizados);
   };
 
-  // Guardar token de admin
-  const guardarToken = () => {
-    localStorage.setItem("adminToken", adminToken);
-    alert("Token guardado correctamente");
-  };
+  const usuariosFiltrados = usuarios.filter(usuario => {
+    if (filtro === "todos") return true;
+    if (filtro === "aprobado") return usuario.aprobado;
+    return !usuario.aprobado;
+  });
 
   if (isLoading) {
-    return <div className="loading">Cargando...</div>;
+    return <div className="loading">Cargando clientes...</div>;
   }
 
   return (
-    <div className="aprobaciones-container">
-      <header className="aprobaciones-header">
-        <h1>Solicitudes pendientes</h1>
-        <div className="admin-controls">
-          <div className="token-input-group">
-            <input
-              type="password"
-              placeholder="Token de administrador"
-              value={adminToken}
-              onChange={(e) => setAdminToken(e.target.value)}
-              className="admin-input"
-            />
-            <button onClick={guardarToken} className="btn-guardar">
-              Guardar
-            </button>
-          </div>
-          <Link to="/panel" className="btn-regresar">
-            ← Regresar
-          </Link>
-        </div>
-      </header>
-
-      <div className="aprobaciones-content">
-        {usuarios.length > 0 ? (
-          <table className="aprobaciones-tabla">
-            <thead>
-              <tr>
-                <th>NOMBRE</th>
-                <th>CORREO</th>
-                <th>DOCUMENTO</th>
-                <th>ESTADO</th>
-                <th>ACCIONES</th>
-              </tr>
-            </thead>
-            <tbody>
-              {usuarios.map((usuario) => (
-                <tr key={usuario.documento}>
-                  <td>{usuario.nombre}</td>
-                  <td>{usuario.correo}</td>
-                  <td>{usuario.documento}</td>
-                  <td className={`estado ${(usuario.estado || "pendiente").toLowerCase()}`}>
-                    {usuario.estado || "Pendiente"}
-                  </td>
-                  <td>
-                    <div className="acciones-botones">
-                      <button
-                        onClick={() => aprobarUsuario(usuario.documento)}
-                        className="btn-aprobar"
-                        disabled={!validarAdmin()}
-                      >
-                        Aprobar
-                      </button>
-                      <button
-                        onClick={() => rechazarUsuario(usuario.documento)}
-                        className="btn-rechazar"
-                        disabled={!validarAdmin()}
-                      >
-                        Rechazar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <div className="sin-registros">
-            No hay solicitudes pendientes
-          </div>
-        )}
+    <div className="registro-container">
+      <h1 className="titulo-principal">Gestión de Clientes</h1>
+      <h2 className="subtitulo">Aprobación de registros</h2>
+      
+      <div className="navegacion">
+        <Link to="/" className="btn-nav btn-primario">🏠 Inicio</Link>
+        <Link to="/registro" className="btn-nav btn-secundario">➕ Nuevo Cliente</Link>
       </div>
+
+      <div className="filtros">
+        <button 
+          onClick={() => setFiltro("pendiente")} 
+          className={filtro === "pendiente" ? "active" : ""}
+        >
+          Pendientes
+        </button>
+        <button 
+          onClick={() => setFiltro("aprobado")} 
+          className={filtro === "aprobado" ? "active" : ""}
+        >
+          Aprobados
+        </button>
+        <button 
+          onClick={() => setFiltro("todos")} 
+          className={filtro === "todos" ? "active" : ""}
+        >
+          Todos
+        </button>
+      </div>
+
+      {usuariosFiltrados.length === 0 ? (
+        <p className="sin-reservas">No hay clientes {filtro !== "todos" ? `en estado ${filtro}` : "registrados"}.</p>
+      ) : (
+        <div className="reservas-list">
+          {usuariosFiltrados.map((usuario) => (
+            <div key={usuario.documento} className="reserva-card">
+              <div className="reserva-grid">
+                <div className="reserva-item">
+                  <span className="reserva-label">Nombre: </span>
+                  <span className="reserva-value">{usuario.nombre}</span>
+                </div>
+                <div className="reserva-item">
+                  <span className="reserva-label">Correo: </span>
+                  <span className="reserva-value">{usuario.correo}</span>
+                </div>
+                <div className="reserva-item">
+                  <span className="reserva-label">Documento: </span>
+                  <span className="reserva-value">{usuario.documento}</span>
+                </div>
+                <div className="reserva-item">
+                  <span className="reserva-label">Teléfono: </span>
+                  <span className="reserva-value">{usuario.telefono}</span>
+                </div>
+                <div className="reserva-item">
+                  <span className="reserva-label">Estado: </span>
+                  <span className={`reserva-value ${usuario.aprobado ? "aprobado" : "pendiente"}`}>
+                    {usuario.aprobado ? "Aprobado" : "Pendiente"}
+                  </span>
+                </div>
+              </div>
+              
+              {!usuario.aprobado && (
+                <div className="acciones">
+                  <button 
+                    onClick={() => aprobarUsuario(usuario.documento)} 
+                    className="btn-aprobar"
+                  >
+                    Aprobar
+                  </button>
+                  <button 
+                    onClick={() => rechazarUsuario(usuario.documento)} 
+                    className="btn-rechazar"
+                  >
+                    Rechazar
+                  </button>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

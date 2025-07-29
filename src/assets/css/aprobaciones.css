@@ -1,143 +1,163 @@
-/* Estilos generales */
-.aprobaciones-container {
+/* assets/css/aprobaciones.css */
+
+/* Estilos base consistentes con registro.css */
+.registro-container {
+  max-width: 1000px;
+  margin: 2rem auto;
   padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  min-height: 100vh;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Header */
-.aprobaciones-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #2c3e50;
-  color: white;
-  padding: 1.5rem 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+.titulo-principal {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
 }
 
-.aprobaciones-header h1 {
-  margin: 0;
-  font-size: 1.8rem;
+.subtitulo {
+  color: #34495e;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 500;
 }
 
-/* Controles de admin */
-.admin-controls {
+/* Navegación */
+.navegacion {
   display: flex;
   gap: 1rem;
-  align-items: center;
+  margin-bottom: 2rem;
+  justify-content: center;
 }
 
-.token-input-group {
+.btn-nav {
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
   display: flex;
+  align-items: center;
   gap: 0.5rem;
-}
-
-.admin-input {
-  padding: 0.6rem;
-  border-radius: 5px;
-  border: none;
-  font-size: 1rem;
-  width: 200px;
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-.btn-guardar {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.2s;
-}
-
-.btn-guardar:hover {
-  background-color: #2980b9;
-}
-
-.btn-regresar {
-  background-color: #7f8c8d;
-  color: white;
-  padding: 0.6rem 1rem;
-  border-radius: 5px;
+  font-size: 0.95rem;
   text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.2s;
 }
 
-.btn-regresar:hover {
-  background-color: #6c7a7d;
-}
-
-/* Tabla */
-.aprobaciones-content {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
-.aprobaciones-tabla {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.aprobaciones-tabla th {
+.btn-primario {
   background-color: #3498db;
   color: white;
-  padding: 1rem;
-  text-align: left;
+  border: 2px solid #3498db;
 }
 
-.aprobaciones-tabla td {
-  padding: 1rem;
-  border-bottom: 1px solid #eee;
+.btn-primario:hover {
+  background-color: #2980b9;
+  border-color: #2980b9;
 }
 
-.aprobaciones-tabla tr:last-child td {
-  border-bottom: none;
+.btn-secundario {
+  background-color: transparent;
+  color: #3498db;
+  border: 2px solid #3498db;
 }
 
-.aprobaciones-tabla tr:hover {
-  background-color: #f5f7fa;
+.btn-secundario:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Filtros */
+.filtros {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.filtros button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 20px;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filtros button.active {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Tarjetas de usuario */
+.reservas-list {
+  margin-top: 1.5rem;
+}
+
+.reserva-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #3498db;
+}
+
+.reserva-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.reserva-item {
+  margin-bottom: 0.8rem;
+}
+
+.reserva-label {
+  font-size: 0.75rem;
+  color: #7f8c8d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+}
+
+.reserva-value {
+  color: #2c3e50;
+  font-size: 1rem;
+  font-weight: 500;
+  display: block;
 }
 
 /* Estados */
-.estado {
-  font-weight: 600;
-  text-transform: capitalize;
-}
-
-.estado.aprobado {
+.reserva-value.aprobado {
   color: #27ae60;
 }
 
-.estado.rechazado {
-  color: #e74c3c;
-}
-
-.estado.pendiente {
+.reserva-value.pendiente {
   color: #f39c12;
 }
 
 /* Botones de acción */
-.acciones-botones {
+.acciones {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
 }
 
 .btn-aprobar, .btn-rechazar {
-  border: none;
   padding: 0.6rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
+  border: none;
+  border-radius: 6px;
   font-weight: 500;
-  transition: all 0.2s;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex: 1;
 }
 
 .btn-aprobar {
@@ -145,7 +165,7 @@
   color: white;
 }
 
-.btn-aprobar:hover:not(:disabled) {
+.btn-aprobar:hover {
   background-color: #27ae60;
 }
 
@@ -154,57 +174,42 @@
   color: white;
 }
 
-.btn-rechazar:hover:not(:disabled) {
+.btn-rechazar:hover {
   background-color: #c0392b;
 }
 
-.btn-aprobar:disabled, .btn-rechazar:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* Sin registros */
-.sin-registros {
+/* Estados vacíos */
+.sin-reservas {
   text-align: center;
-  padding: 3rem;
+  padding: 2rem;
   color: #7f8c8d;
   font-style: italic;
 }
 
-/* Loading */
 .loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-size: 1.2rem;
+  text-align: center;
+  padding: 2rem;
   color: #3498db;
+  font-weight: 500;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .aprobaciones-header {
+  .reserva-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .navegacion {
     flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
+    align-items: center;
   }
   
-  .admin-controls {
+  .filtros {
+    flex-wrap: wrap;
+  }
+  
+  .btn-nav, .filtros button {
     width: 100%;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .token-input-group {
-    width: 100%;
-  }
-  
-  .admin-input {
-    width: 100%;
-  }
-  
-  .aprobaciones-tabla {
-    display: block;
-    overflow-x: auto;
+    justify-content: center;
   }
 }
