@@ -7,10 +7,10 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  color: #ffffff91;
+  color: #ffffff;
   background: url('../img/hotel2.jpg') no-repeat center center fixed;
   background-size: cover;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
 }
@@ -36,7 +36,7 @@ body {
 .encabezado nav ul {
   display: flex;
   list-style: none;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .encabezado nav ul li a {
@@ -49,7 +49,7 @@ body {
 }
 
 .encabezado nav ul li a:hover {
-  background-color: #211616;
+  background-color: #1c1414e6;
 }
 
 /* Contenido principal */
@@ -60,23 +60,25 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
   backdrop-filter: blur(5px);
 }
 
 /* Sección de bienvenida */
 .bienvenida {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 2rem 3rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
 }
 
-.bienvenida h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
+
 
 .bienvenida p {
   font-size: 1.1rem;
@@ -86,8 +88,8 @@ body {
 /* Galería de imágenes */
 .galeria-inicio {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 2rem;
+  margin-bottom: 3rem;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -110,22 +112,29 @@ body {
 /* Contenedor de botones */
 .cuadro-botones {
   display: flex;
-  gap: 2rem;
   justify-content: center;
+  align-items: center;
+  gap: 2rem;
   background-color: rgba(0, 0, 0, 0.482);
-  padding: 3rem 5rem;
+  padding: 1rem 2rem;
   border-radius: 1rem;
   box-shadow: 0 0 10px rgb(255, 255, 255);
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 2rem;
 }
 
 /* Estilos de botones */
 .btn {
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 900;
   font-size: 1rem;
   border-radius: 30px;
-  padding: 1rem 2rem;
+  padding: 0rem rem;
   transition: background 0.3s, transform 0.2s;
+  color: #ffffff;
+  border: none;
 }
 
 .btn:hover {
@@ -146,9 +155,7 @@ body {
   color: white;
 }
 
-.header-nav {
-  border: 2px solid red !important; /* Para visualizar el contenedor */
-}
+
 .btn-secundario:hover {
   background-color: #000000;
 }

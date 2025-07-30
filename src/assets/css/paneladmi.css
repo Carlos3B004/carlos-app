@@ -1,137 +1,276 @@
-/* ==== FONDO GLOBAL CON IMAGEN Y SUPERPOSICIÓN OSCURA ==== */
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+/* ==== ESTILOS GENERALES DEL PANEL ADMIN ==== */
+.panel-admin {
+  min-height: 100vh;
   background-image: url('../img/hotel2.jpg');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
   position: relative;
-  overflow-x: hidden;
 }
 
-/* ==== NAV - Botones modernos con blur ==== */
-nav {
+.panel-admin::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.contenido-admin {
   position: relative;
   z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* ==== SECCIÓN DE BIENVENIDA ==== */
+.seccion-bienvenida-admin {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.tarjeta-saludo-admin {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta-saludo-admin h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.tarjeta-saludo-admin p {
+  color: #000000;
+  margin-bottom: 1.5rem;
+}
+
+.resumen-admin {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  padding: 15px 25px;
-  backdrop-filter: blur(10px);
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  justify-content: space-between;
+  margin-top: 1.5rem;
 }
 
-nav a {
-  display: inline-flex;
+.resumen-item-admin {
+  text-align: center;
+  flex: 1;
+}
+
+.resumen-valor {
+  font-size: 1.8rem;
+  font-weight: bold;
+  display: block;
+  color: #000000;
+}
+
+.resumen-label {
+  font-size: 0.9rem;
+  color: #000000;
+}
+
+/* ==== TARJETA DE ACCIONES ==== */
+.tarjeta-acciones-admin {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ==== TARJETA DE ACCIONES ==== */
+.tarjeta-acciones-admin h3 {  /* Agrega esto para el título de Acciones Rápidas */
+  color: #000000 !important;
+}
+
+/* ==== ALERTAS ==== */
+.tarjeta-alertas-admin h3 {  /* Agrega esto para el título de Alertas del Sistema */
+  color: #000000 !important;
+}
+
+.acciones-grid-admin {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.accion-btn-admin {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  text-decoration: none;
-  padding: 12px 24px;
-  border-radius: 14px;
-  font-size: 1rem;
-  font-weight: 600;
-  font-family: 'Segoe UI', sans-serif;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  background: #f8f9fa;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  cursor: pointer;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
-  backdrop-filter: blur(6px);
 }
 
-nav a:hover {
-  background: rgba(255, 255, 255, 0.3);
+.accion-btn-admin:hover {
+  background: #2c3e50;
+  color: white;
   transform: translateY(-3px);
-  border-color: #ffffff;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
-nav a.active {
-  background-color: rgba(0, 123, 255, 0.8);
-  border: 2px solid rgb(255, 255, 255);
+.accion-icono {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
 }
 
-nav a .icon {
+/* ==== ESTADÍSTICAS Y ALERTAS ==== */
+.seccion-estadisticas-admin {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.tarjeta-estadisticas-admin h3 {
+  color: #000000;
+}
+
+.tarjeta-estadisticas-admin {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.metricas-grid-admin {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.metrica-item-admin {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.metrica-valor {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.metrica-label {
+  font-size: 0.9rem;
+  color: #000000;
+  margin: 0.3rem 0;
+}
+
+.metrica-tendencia {
+  font-size: 0.8rem;
+  color: #000000;
+}
+
+.metrica-tendencia.positiva {
+  color: #2ecc71;
+}
+
+/* ==== ALERTAS ==== */
+.tarjeta-alertas-admin {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.alertas-lista-admin {
+  margin-top: 1rem;
+}
+
+.alerta-item-admin {
+  display: flex;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  background: #000000;
+}
+
+.alerta-item-admin.alta {
+  background: #671c1cd8;
+ 
+}
+
+.alerta-item-admin.media {
+  background: #184faf;
+  
+}
+
+
+.alerta-icono {
+  margin-right: 1rem;
   font-size: 1.2rem;
 }
 
-/* ==== MAIN y PANEL ==== */
-main {
+.alerta-contenido {
+  flex: 1;
+}
+
+.alerta-mensaje {
+  font-weight: 500;
+}
+
+.alerta-detalle {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 2rem;
-  position: relative;
-  z-index: 1;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #000000;
+  margin-top: 0.3rem;
 }
 
-/* ==== PANEL DE BIENVENIDA MODERNO ==== */
-.bienvenida {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 1.8rem 1.8rem;
-  border-radius: 20px;
-  max-width: 520px;
-  width: 100%;
-  text-align: center;
-  backdrop-filter: blur(16px);
-  box-shadow: 0 12px 15px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  animation: fadeIn 0.9s ease forwards;
-  transform: translateY(20px);
-  opacity: 0;
+.alerta-prioridad {
+  text-transform: capitalize;
 }
 
-@keyframes fadeIn {
-  to {
-    transform: translateY(0);
-    opacity: 1;
+.ver-todas-btn {
+  background: none;
+  border: none;
+  color: #3498db;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 1200px) {
+  .seccion-bienvenida-admin,
+  .seccion-estadisticas-admin,
+  .seccion-auditoria-admin {
+    grid-template-columns: 1fr;
+  }
+  
+  .metricas-grid-admin {
+    grid-template-columns: 1fr;
   }
 }
 
-#saludo {
-  font-size: 2rem;
-  font-weight: 400;
-  color: #000000;
-  margin-bottom: 1rem;
-  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.6);
+@media (max-width: 768px) {
+  .acciones-grid-admin {
+    grid-template-columns: 1fr;
+  }
+  
+  .tabla-header, .tabla-fila {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .tabla-header div:nth-child(4),
+  .tabla-header div:nth-child(5),
+  .tabla-fila div:nth-child(4),
+  .tabla-fila div:nth-child(5) {
+    display: none;
+  }
 }
-
-.bienvenida p {
-  font-size: 1rem;
-  color: #f0f0f0;
-  font-style: italic;
-  line-height: 1.7;
-  margin: 0;
-}
-
-/* ==== IMAGEN ADICIONAL SI SE MANTIENE ==== */
-.imagen-panel {
-  width: 100%;
-  max-width: 420px;
-  height: auto;
-  border-radius: 18px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-  margin-top: 1.5rem;
-}
-
-.imagen-panel:hover {
-  transform: scale(1.05);
-}
-form button {
-  margin-top: 1.5rem;
-  padding: 12px 25px;
-  background-color: #0055aa;
-  color: rgb(255, 255, 255);
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-

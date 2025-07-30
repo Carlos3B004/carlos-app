@@ -49,7 +49,6 @@ const Inicio = () => {
             className="imagen-inicio"
           />
         </section>
-
         <div className="cuadro-botones">
           <Link to="/Login" className="btn btn-primario"> 👤 Iniciar Sesión </Link>
           <Link to="/registro" className="btn btn-secundario"> 🔐 Registrate </Link>

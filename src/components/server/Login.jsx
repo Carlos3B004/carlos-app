@@ -48,7 +48,7 @@ const Login = () => {
       <Header 
         title="Hotel ULEAM"
         navItems={[
-          { path: "/", icon: "🏠", label: "Inicio" }
+          { path: "/Inicio", icon: "🏠", label: "Inicio" }
         ]}
       />
 
