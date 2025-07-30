@@ -39,7 +39,7 @@ const Login = () => {
         nombre: correo.split('@')[0]
       };
       localStorage.setItem('usuarioActivo', JSON.stringify(usuarioActivo));
-      navigate('/paneladmi');
+      navigate('/panel');
     }
   };
 
