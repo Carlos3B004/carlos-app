@@ -32,7 +32,12 @@ const Login = () => {
         setMensaje('❌ Código de administrador incorrecto.');
         return;
       }
-      navigate('/paneladmi');
+      const usuarioActivo = {
+        correo,
+        nombre: correo.split('@')[0]
+      };
+        localStorage.setItem('usuarioActivo', JSON.stringify(usuarioActivo));
+        navigate('/paneladmi');
     } else {
       const usuarioActivo = {
         correo,
